@@ -1,4 +1,4 @@
-/* Console.WriteLine("Student\Exam Score\tOverall Grade\tExtra Credit");
+/* Console.WriteLine("Student\t\tExam Score\tOverall Grade\tLetter Grade\tExtra Credit");
 This C# console application is designed to:
 - Use arrays to store student names and assignment scores.
 - Use a `foreach` statement to iterate through the student names as an outer program loop.
@@ -45,31 +45,32 @@ The outer foreach loop is used to:
 */
 foreach (string name in studentNames)
 {
+
     int examScore = 0;
     int extraCreditScore = 0;
 
     decimal extraCreditPoints = 0;
 
     decimal overallScore = 0;
-
     string letterGrade = "";
+
     string currentStudent = name;
 
     if (name == "Sophia")
-
+{
         overallScore = 95.8m;
-        letterGrade = "A-";
-
+        letterGrade = "A";
+}
     else if (name == "Andrew")
-
+{
         overallScore = 91.2m;
         letterGrade = "A-";
-
+}
     else if (name == "Emma")
-
+{
         overallScore = 90.4m;
         letterGrade = "A-";
-
+}
     else if (name == "Logan")
     {
         overallScore = 93m;
@@ -141,7 +142,7 @@ foreach (string name in studentNames)
     // Student         Grade
     // Sophia:         92.2    A-
     
-    Console.WriteLine($"{name}\t\t{examScore}\t{overrallScore}\t{letterGrade}\t{extraCreditScore} {extraCreditPoints} pts)");
+    Console.WriteLine($"{name}\t\t{examScore}\t{overallScore}\t{letterGrade}\t{extraCreditScore} {extraCreditPoints} pts)");
 }
 
 // required for running in VS Code (keeps the Output windows open to view results)
