@@ -12,16 +12,36 @@ Console.WriteLine("Student\tExam Score\tOverall Grade\tExtra Credit\n");
 
 foreach (string name in studentNames)
 {
-    int[] studentScores;
+    int[] studentScores = new int[10];
 
-    if (name == "Sophia")
-        studentScores = sophiaScores;
-    else if (name == "Andrew")
-        studentScores = andrewScores;
-    else if (name == "Emma")
-        studentScores = emmaScores;
+if (name == "Sophia")
+    studentScores = sophiaScores;
+else if (name == "Andrew")
+    studentScores = andrewScores;
+else if (name == "Emma")
+    studentScores = emmaScores;
+else
+    studentScores = loganScores;
+
+int examAssignments = 5;
+
+int sumExamScores = 0;
+int sumExtraCreditScores = 0;
+
+for (int i = 0; i < studentScores.Length; i++)
+{
+    if (i < examAssignments)
+        sumExamScores += studentScores[i];
     else
-        studentScores = loganScores;
+        sumExtraCreditScores += studentScores[i];
+}
+
+examScore = sumExamScores / examAssignments;
+
+extraCreditScore = sumExtraCreditScores;
+extraCreditPoints = (decimal)sumExtraCreditScores / 10;
+
+overallScore = examScore + extraCreditPoints;
 
     int examScore = 0;
     int extraCreditScore = 0;
