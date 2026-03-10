@@ -24,19 +24,23 @@ foreach (string name in studentNames)
 
     int examAssignments = 5;
 
-    int examScoreTotal = 0;
-    int extraCreditTotal = 0;
+    int sumExamScores = 0;
+    int sumExtraCreditScores = 0;
 
     for (int i = 0; i < studentScores.Length; i++)
     {
         if (i < examAssignments)
-            examScoreTotal += studentScores[i];
+        {
+            sumExamScores += studentScores[i];
+        }
         else
-            extraCreditTotal += studentScores[i];
+        {
+            sumExtraCreditScores += studentScores[i];
+        }
     }
 
-    decimal examScore = examScoreTotal / examAssignments;
-    decimal extraCreditPoints = (decimal)extraCreditTotal / 10;
+    decimal examScore = (decimal)sumExamScores / examAssignments;
+    decimal extraCreditPoints = (decimal)sumExtraCreditScores / 10;
 
     decimal overallScore = examScore + extraCreditPoints;
 
@@ -55,7 +59,7 @@ foreach (string name in studentNames)
     else
         letterGrade = "B-";
 
-    Console.WriteLine($"{name}\t{examScore}\t\t{overallScore:F2} {letterGrade}\t{extraCreditTotal} ({extraCreditPoints:F2} pts)");
+    Console.WriteLine($"{name}\t{examScore:F1}\t\t{overallScore:F2} {letterGrade}\t{sumExtraCreditScores} ({extraCreditPoints:F2} pts)");
 }
 
 Console.WriteLine("\nPress the Enter key to continue");
